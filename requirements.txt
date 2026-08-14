@@ -95,6 +95,7 @@ tinycss2 @ file:///opt/miniconda3/conda-bld/tinycss2_1764948936749/work
 tornado @ file:///Users/ec2-user/croot/tornado_1782314825060/work
 traitlets @ file:///Users/ec2-user/croot/traitlets_1778743188716/work
 typing_extensions @ file:///Users/ec2-user/croot/typing_extensions_1784100998941/work
+ucimlrepo==0.0.7
 urllib3 @ file:///Users/ec2-user/croot/urllib3_1778536191454/work
 wcwidth @ file:///Users/ec2-user/croot/wcwidth_1783583483910/work
 webencodings==0.5.1
