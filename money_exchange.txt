@@ -1,0 +1,24 @@
++---------------------------------------------------------------------------------+
+|                              Money Exchange System                              |
+|                                                                                 |
+|   [Customer] ---------> (View Live Exchange Rates) <--- [Forex Rate Feed API]   |
+|         |                                                                       |
+|         +-------------> (Calculate Conversion Estimate)                         |
+|         |                                                                       |
+|         +-------------> (Execute Currency Exchange)                             |
+|                                |                                                |
+|                                +---<<include>>---> (Verify Identity / KYC)      |
+|                                |                          ^                     |
+|                                |                          |                     |
+|                                |                [AML Compliance System]         |
+|                                |                                                |
+|                                +---<<include>>---> (Process Payment)            |
+|                                |                          ^                     |
+|                                |                          |                     |
+|                                |                  [Payment Gateway]             |
+|                                |                                                |
+|                                +---<<extend>>----> (Apply Volume Discount)      |
+|                                                                                 |
+|   [Teller] -----------> (Dispense Physical Currency)                            |
+|   [Admin] ------------> (Adjust Currency Spread Margins)                        |
++---------------------------------------------------------------------------------+
