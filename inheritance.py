@@ -118,3 +118,4 @@ if __name__ == "__main__":
 
     # Calculate and display pay rate and total pay
     admin_staff.display_pay_info()
+    
