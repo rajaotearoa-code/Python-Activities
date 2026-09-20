@@ -1,0 +1,56 @@
+from abc import ABC, abstractmethod
+
+
+# ==========================================
+# 1. Target Interface
+# ==========================================
+class PaymentProcessor(ABC):
+    @abstractmethod
+    def pay(self, amount: float):
+        pass
+
+
+# ==========================================
+# 2. Adaptee (Third-Party System)
+# ==========================================
+class OldPaymentSystem:
+    def make_payment(self, amount: float):
+        print(f"Payment of ${amount} made using Old Payment System.")
+
+
+# ==========================================
+# 3. Adapter using Composition (Object Adapter)
+# ==========================================
+class PaymentAdapterComposition(PaymentProcessor):
+    def __init__(self, adaptee: OldPaymentSystem):
+        self._adaptee = adaptee
+
+    def pay(self, amount: float):
+        self._adaptee.make_payment(amount)
+
+
+# ==========================================
+# 4. Adapter using Multiple Inheritance (Class Adapter)
+# ==========================================
+class PaymentAdapterInheritance(PaymentProcessor, OldPaymentSystem):
+    def pay(self, amount: float):
+        self.make_payment(amount)
+
+
+# ==========================================
+# 5. Client Code & Verification
+# ==========================================
+def run_checkout(service: PaymentProcessor, amount: float):
+    # The client works solely with the Target interface: pay(amount)
+    service.pay(amount)
+
+
+if __name__ == "__main__":
+    print("--- 1. Testing Composition Adapter ---")
+    legacy_instance = OldPaymentSystem()
+    composition_adapter = PaymentAdapterComposition(legacy_instance)
+    run_checkout(composition_adapter, 500)
+
+    print("\n--- 2. Testing Multiple Inheritance Adapter ---")
+    inheritance_adapter = PaymentAdapterInheritance()
+    run_checkout(inheritance_adapter, 500)
